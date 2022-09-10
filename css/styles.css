@@ -1,0 +1,421 @@
+@charset "UTF-8";
+:root {
+  --tipo-principal: "Roboto", Arial, sans-serif;
+  --tipo-secundaria: Verdana;
+}
+
+/* Reseteamos los margin y paddings de todas las etiquetas */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Evitamos problemas con las imagenes */
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* opcional */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* opcional */
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* Reseteamos las tablas */
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #eee;
+  transition: all ease 0.5s;
+  color: #1a1a1a;
+}
+
+body.dark-active {
+  background: #212121;
+  color: #e6e6e6;
+}
+body.dark-active .header {
+  background: #181818;
+  box-shadow: 0 0 5px 1px #494949;
+  color: #eee;
+}
+body.dark-active .header__dark-ligthmode-slider {
+  background: #424242;
+}
+body.dark-active .section {
+  background: #181818;
+  box-shadow: 0 0 5px 1px #494949;
+}
+body.dark-active .section .projects__div-search i {
+  color: rgba(187, 187, 187, 0.5);
+}
+body.dark-active .section .projects__search {
+  background: #181818;
+  border: 2px solid rgba(187, 187, 187, 0.5);
+}
+body.dark-active .section .projects__search:hover, body.dark-active .section .projects__search:focus {
+  border-color: #2192ff;
+}
+body.dark-active .section .projects__search:hover + i, body.dark-active .section .projects__search:focus + i {
+  color: #2192ff;
+}
+body.dark-active .section .projects .grid .item .project {
+  box-shadow: 0 0 5px 1px #494949;
+}
+body.dark-active .section .projects .grid .item .project__description {
+  color: #bbb;
+}
+body.dark-active .footer {
+  background: #181818;
+  box-shadow: 0 0 5px 1px #494949;
+}
+
+.header {
+  background: #fff;
+  height: 40px;
+  padding: 30px;
+  display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #2192ff;
+  box-shadow: 0 0 10px 5px rgba(204, 204, 204, 0.4);
+  transition: all ease 0.5s;
+}
+.header__h2 {
+  font-size: 22px;
+  font-weight: 500;
+}
+.header__dark-ligthmode {
+  width: 38px;
+  height: 22px;
+}
+.header__dark-ligthmode-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #f0f0f0;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+.header__dark-ligthmode-slider .slider {
+  position: absolute;
+  left: 0;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: linear-gradient(to right top, #fdff00, #fceb00, #f8d700, #f2c407, #ebb212);
+  transition: all ease 0.6s;
+}
+.header__dark-ligthmode-slider .slider.active {
+  left: calc(100% - 21px);
+  background: linear-gradient(to right top, #ffffff, #f1f1f1, #e3e3e3, #d5d5d5, #c7c7c7);
+}
+
+.section {
+  width: 80%;
+  box-shadow: 0 0 10px 5px rgba(204, 204, 204, 0.4);
+  margin: 10px auto;
+  border-radius: 10px;
+  background: #fff;
+  position: relative;
+  padding: 20px;
+  transition: all ease 0.5s;
+}
+.section__hero {
+  margin-bottom: 20px;
+}
+.section__hero .hero__img {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.section__hero .hero__h1 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #2192ff;
+  text-align: center;
+  margin: 20px 0;
+}
+.section__hero .hero__p {
+  font-size: 16px;
+  text-align: center;
+  line-height: 2em;
+  width: 80%;
+  margin: auto;
+}
+.section .projects__div-search {
+  width: 60%;
+  margin: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.section .projects__div-search i {
+  position: absolute;
+  left: 10px;
+  font-size: 20px;
+  color: #e6e6e6;
+  transition: all ease 0.4s;
+}
+.section .projects__search {
+  width: 100%;
+  margin: auto;
+  border-radius: 40px;
+  padding: 10px 10px 10px 40px;
+  outline: none;
+  background: #fff;
+  border: 2px solid #e6e6e6;
+  transition: all ease 0.4s;
+}
+.section .projects__search:hover, .section .projects__search:focus {
+  border-color: #2192ff;
+}
+.section .projects__search:hover + i, .section .projects__search:focus + i {
+  color: #2192ff;
+}
+.section .projects__h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #2192ff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.section .projects__grid {
+  height: 270px;
+  overflow: scroll;
+}
+.section .projects__grid::-webkit-scrollbar {
+  display: none;
+}
+.section .projects__grid .grid {
+  position: relative;
+  width: 100%;
+  margin: auto;
+}
+.section .projects__grid .grid .item {
+  position: absolute;
+  display: block;
+  margin: 10px;
+  height: auto;
+  width: calc(50% - 20px);
+}
+.section .projects__grid .grid .item .project {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px rgba(204, 204, 204, 0.4);
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.section .projects__grid .grid .item .project__title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #2192ff;
+}
+.section .projects__grid .grid .item .project__subtitle {
+  font-size: 18px;
+  font-weight: 500;
+}
+.section .projects__grid .grid .item .project__description {
+  font-size: 16px;
+  color: #424242;
+}
+.section .projects__grid .grid .item .project__language {
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  color: #2192ff;
+}
+.section .projects__grid .grid .item .project__buttons {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+.section .projects__grid .grid .item .project__btn {
+  font-size: 14px;
+  color: #2192ff;
+  padding: 10px 5px;
+  border: 2px solid rgba(33, 146, 255, 0.3);
+  border-radius: 4px;
+  display: inline-block;
+  transition: all ease 0.4s;
+}
+.section .projects__grid .grid .item .project__btn:hover {
+  border-color: #2192ff;
+}
+.section .projects__grid .grid .item .project__btn.visite-web {
+  width: 35%;
+}
+.section .projects__grid .grid .item .project__btn.visite-github {
+  width: 60%;
+}
+
+.footer {
+  background: #fff;
+  transition: all ease 0.5s;
+  padding: 10px;
+  width: 100%;
+}
+.footer__h5 {
+  font-weight: 500;
+  font-size: 17px;
+  margin-bottom: 10px;
+  color: #2192ff;
+}
+.footer .redes {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.footer .redes__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.footer .redes__icon.facebook {
+  background: radial-gradient(circle at 30% 110%, #136ba5 10%, #34a5f0 85%, #fff 110%);
+}
+.footer .redes__icon.twitter {
+  background: radial-gradient(circle at 10% 110%, #34a5f0 40%, #81c9fa 98%);
+}
+.footer .redes__icon.instagram {
+  background: radial-gradient(circle at 30% 110%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+}
+.footer .redes__icon.linkedin {
+  background: radial-gradient(circle at 20% 110%, #094784 20%, #136ba5 50%, #ccc 200%);
+}
+.footer .redes__icon.github {
+  background: #181818;
+}
+.footer__made-by {
+  margin: auto;
+  display: block;
+  text-align: center;
+  font-size: 16px;
+}/*# sourceMappingURL=styles.css.map */
